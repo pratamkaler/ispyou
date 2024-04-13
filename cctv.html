@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCTV Camera Viewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        #camera-feed {
+            display: block;
+            margin: 0 auto;
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        #timeline {
+            margin-top: 20px;
+        }
+        .timeline-item {
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-left: 4px solid #007bff;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CCTV Camera Viewer</h1>
+        <div id="camera-container">
+            <video id="camera-feed" controls autoplay>
+                <!-- Use the actual RTSP URL of the CCTV camera -->
+                <source src="http://97.68.104.34/" type="application/x-rtsp">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div id="timeline">
+            <!-- Timeline will be dynamically populated -->
+            <div class="timeline-item">12:00 PM - Event 1</div>
+            <div class="timeline-item">01:30 PM - Event 2</div>
+            <div class="timeline-item">03:45 PM - Event 3</div>
+        </div>
+    </div>
+
+    <script>
+        // Function to update timeline
+        function updateTimeline() {
+            // Your code to fetch and update the timeline data
+            // Example:
+            var timelineData = [
+                { time: "12:00 PM", event: "Event 1" },
+                { time: "01:30 PM", event: "Event 2" },
+                { time: "03:45 PM", event: "Event 3" }
+            ];
+
+            var timelineContainer = document.getElementById('timeline');
+            timelineContainer.innerHTML = ''; // Clear previous data
+
+            timelineData.forEach(function(item) {
+                var timelineItem = document.createElement('div');
+                timelineItem.classList.add('timeline-item');
+                timelineItem.textContent = item.time + ' - ' + item.event;
+                timelineContainer.appendChild(timelineItem);
+            });
+        }
+
+        // Update timeline periodically
+        setInterval(function() {
+            updateTimeline();
+        }, 5000); // Update every 5 seconds (adjust as needed)
+    </script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISPYOU</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('background.jpg'); /* Background image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mr. Karan's class Behavior Incident Reporting</h1>
+        <form id="incidentForm">
+            <label for="student">Select Student:</label>
+            <select id="student" name="student">
+                <option value="Pratham">Pratham</option>
+                <option value="Prabh Jakhu">Prabh Jakhu</option>
+                <option value="Deepak Bangar">Deepak Bangar</option>
+                <option value="Manroop">Manroop</option>
+                <option value="Neha">Neha</option>
+                <option value="Muskan">Muskan</option>
+                <option value="Palvi">Palvi</option>
+                <option value="Daman">Daman</option>
+            </select>
+            <label for="severity">Severity:</label>
+            <select id="severity" name="severity">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+            <label for="time">Time:</label>
+            <input type="text" id="time" name="time" placeholder="Enter time of incident">
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" placeholder="Enter location of incident">
+            <label for="description">Description:</label>
+            <textarea id="description" name="description" rows="4" placeholder="Enter description of incident"></textarea>
+            <button type="submit" class="button">Report Incident</button>
+        </form>
+    </div>
+
+    <script>
+        // Function to handle form submission
+        document.getElementById("incidentForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            // Retrieve form data
+            const student = document.getElementById("student").value;
+            const severity = document.getElementById("severity").value;
+            const time = document.getElementById("time").value;
+            const location = document.getElementById("location").value;
+            const description = document.getElementById("description").value;
+
+            // Log the incident (you can replace this with your backend code to handle the data)
+            console.log("Incident Report:");
+            console.log("Student:", student);
+            console.log("Severity:", severity);
+            console.log("Time:", time);
+            console.log("Location:", location);
+            console.log("Description:", description);
+
+            // Clear the form fields after submission
+            document.getElementById("incidentForm").reset();
+        });
+    </script>
+</body>
+</html>

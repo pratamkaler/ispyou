@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISPYOU</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('background.jpg'); /* Add the URL to your background image */
+            background-size: cover; /* Adjust the background size */
+            background-position: center; /* Adjust the background position */
+            color: rgb(255, 255, 255); /* Set text color to white */
+        }
+        .header {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+        }
+        .dashboard {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white background */
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* White shadow effect */
+        }
+        h1, h2 {
+            margin: 0;
+        }
+        h1 {
+            font-size: 36px;
+        }
+        h2 {
+            margin-top: 20px;
+            font-size: 24px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        #behavioral-trends {
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Removed the heading -->
+    
+    <div class="dashboard">
+        <h2>Child's Recent Incidents</h2>
+        <ul id="incident-list">
+            <!-- Incidents will be dynamically added here -->
+        </ul>
+        
+        <h2>Notifications</h2>
+        <ul id="notification-list">
+            <!-- Notifications will be dynamically added here -->
+        </ul>
+        
+        <h2>Child's Behavioral Trends</h2>
+        <div id="behavioral-trends">
+            <!-- Behavioral trends chart/graph will be dynamically added here -->
+        </div>
+    </div>
+
+    <script>
+        // Fetch child's recent incidents from server/database and populate the list
+        function fetchChildIncidents() {
+            // You can use AJAX/fetch to fetch data from the server
+            // For now, let's assume child's incidents are fetched from a JavaScript array
+            const incidents = ["Incident 1", "Incident 2", "Incident 3"];
+            const incidentList = document.getElementById("incident-list");
+            incidents.forEach(incident => {
+                const listItem = document.createElement("li");
+                listItem.textContent = incident;
+                incidentList.appendChild(listItem);
+            });
+        }
+
+        // Fetch notifications related to the child from server/database and populate the list
+        function fetchNotifications() {
+            // Similar to fetchIncidents(), fetch notifications from the server
+            // For now, let's assume notifications are fetched from a JavaScript array
+            const notifications = ["Notification 1", "Notification 2", "Notification 3"];
+            const notificationList = document.getElementById("notification-list");
+            notifications.forEach(notification => {
+                const listItem = document.createElement("li");
+                listItem.textContent = notification;
+                notificationList.appendChild(listItem);
+            });
+        }
+
+        // Fetch child's behavioral trends data and display it
+        function fetchChildBehavioralTrends() {
+            // Similar to fetchIncidents() and fetchNotifications()
+            // Fetch child's behavioral trends data and display it in a chart/graph
+            // You might use libraries like Chart.js or D3.js for visualization
+            // For now, let's assume child's behavioral trends are displayed as text
+            const behavioralTrends = "Child's behavioral trends data will be displayed here";
+            const behavioralTrendsContainer = document.getElementById("behavioral-trends");
+            behavioralTrendsContainer.textContent = behavioralTrends;
+        }
+
+        // Call functions to fetch data and populate the dashboard upon loading the page
+        window.onload = function() {
+            fetchChildIncidents();
+            fetchNotifications();
+            fetchChildBehavioralTrends();
+        };
+    </script>
+</body>
+</html>
